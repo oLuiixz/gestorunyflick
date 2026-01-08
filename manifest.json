@@ -1,0 +1,19 @@
+
+{
+  "name": "Gestor UnyFlick",
+  "short_name": "UnyFlick",
+  "description": "Painel Profissional de Gestão de Afiliados UnyFlick",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0b",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/52Nh7zgV/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

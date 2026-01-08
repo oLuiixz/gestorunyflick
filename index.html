@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Gestor UnyFlick - Administração</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="UnyFlick" />
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/52Nh7zgV/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #0a0a0b; 
+        color: #f8fafc;
+        -webkit-tap-highlight-color: transparent;
+      }
+      /* Cores da marca baseadas na logo: Roxo Vibrante para Indigo Profundo */
+      .gradient-bg { background: linear-gradient(135deg, #8b5cf6 0%, #4c1d95 100%); }
+      .gradient-text { background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      .brand-shadow { box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.2); }
+      .sidebar-item-active { background-color: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+      
+      /* Animação de Modal Elegante */
+      @keyframes modal-pop-in {
+        0% { opacity: 0; transform: scale(0.85) translateY(40px); filter: blur(10px); }
+        70% { transform: scale(1.02) translateY(-5px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+      }
+      .animate-modal-pop {
+        animation: modal-pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+
+      @keyframes backdrop-fade {
+        from { opacity: 0; backdrop-filter: blur(0px); }
+        to { opacity: 1; backdrop-filter: blur(8px); }
+      }
+      .animate-backdrop-fade {
+        animation: backdrop-fade 0.4s ease-out forwards;
+      }
+      
+      /* Scrollbar para modo escuro */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #0a0a0b; }
+      ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+      /* Safe Area Insets for modern phones */
+      main {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "recharts": "https://esm.sh/recharts@^3.6.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[#0a0a0b] text-slate-100">
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(reg => {
+            console.log('PWA Service Worker registrado com sucesso.');
+          }).catch(err => {
+            console.log('Falha ao registrar Service Worker:', err);
+          });
+        });
+      }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
